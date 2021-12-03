@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="" rel="stylesheets">
+<title>th:fieldテスト</title>
+</head>
+<body>
+	
+	<div th:if="${received}" th:text="${received}"></div>
+	<br>	
+		
+	
+	<div class="text">
+	<h4>text</h4>
+	リクエストスコープのgender:1<br>
+	formの初期値：2<br>
+	【text】th:field="*{gender}"<br>
+	<form th:action="@{/th-field-test/form-sent}" method="post"	th:object="${thFieldTestForm}">
+		<input type="text" th:field="*{gender}"><br>
+		<button>送信</button>
+	</form>
+	【text】th:field="*{gender}" th:value="${gender}"<br>
+	<form th:action="@{/th-field-test/form-sent}" method="post"	th:object="${thFieldTestForm}">
+		<input type="text" th:field="*{gender}" th:value="${gender}"><br>
+		<button>送信</button>
+	</form>
+	→1なら「th:value="${gender}"」が優先されている<br>
+	→2なら「th:field="*{gender}"」が優先されている<br>
+	<br>
+	【text】th:value="${gender}"
+	<br>
+	<form th:action="@{/th-field-test/form-sent}" method="post"	th:object="${thFieldTestForm}">
+		<input type="text" th:value="${gender}"><br>
+		<button>送信</button>
+	</form>
+	【text】th:text="${gender}"
+	<br>
+	<form th:action="@{/th-field-test/form-sent}" method="post"	th:object="${thFieldTestForm}">
+		<input type="text" th:text="${gender}"><br>
+		<button>送信</button>
+	</form><br>
+	</div>
+	
+	<div class="number">
+	<h4>number</h4>
+		リクエストスコープのgender:1<br>
+		formの初期値：2<br>
+		【number】th:field="*{gender}"	<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post"	th:object="${thFieldTestForm}">
+			<input type="number" th:field="*{gender}"><br>
+			<button>送信</button>
+		</form>
+		【number】th:field="*{gender}"	 th:value="${gender}"
+		<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post"	th:object="${thFieldTestForm}">
+			<input type="number" th:value="${gender}" th:field="*{gender}"><br>
+			<button>送信</button>
+		</form>
+		【number】th:value="${gender}"
+		<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post"	th:object="${thFieldTestForm}">
+			<input type="number" th:value="${gender}"><br>
+			<button>送信</button>
+		</form>
+		【number】th:text="${gender}"
+		<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post"	th:object="${thFieldTestForm}">
+			<input type="number" th:text="${gender}"><br>
+			<button>送信</button>
+		</form><br>
+	</div>
+	
+	<div class="range">
+	<h4>range</h4>
+		リクエストスコープのgender:1<br>
+		formの初期値：2<br>
+		【range】th:field="*{gender}"	<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post"	th:object="${thFieldTestForm}">
+			<input type="range" min="1" max="2" th:field="*{gender}"><br>
+			<button>送信</button>
+		</form>
+		【range】th:field="*{gender}"	 th:value="${gender}"
+		<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post" th:object="${thFieldTestForm}">
+			<input type="range" min="1" max="2" th:value="${gender}" th:field="*{gender}"><br>
+			<button>送信</button>
+		</form>
+		【range】th:value="${gender}"
+		<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post"	th:object="${thFieldTestForm}">
+			<input type="range" min="1" max="2" th:value="${gender}"><br>
+			<button>送信</button>
+		</form>
+		【range】th:text="${gender}"
+		<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post"	th:object="${thFieldTestForm}">
+			<input type="range" min="1" max="2" th:text="${gender}"><br>
+			<button>送信</button>
+		</form><br>
+	</div>
+	
+	<div class="textarea">
+	<h4>textarea</h4>
+		リクエストスコープのgender:1<br>
+		formの初期値：2<br>
+		【textarea】th:field="*{gender}"<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post"	th:object="${thFieldTestForm}">
+			<textarea th:field="*{gender}"></textarea><br>
+			<button>送信</button>
+		</form>
+		【textarea】th:id="gender" th:name="gender" th:text="${gender}"<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post"	th:object="${thFieldTestForm}">
+			<textarea th:id="gender" th:name="gender" th:text="${gender}"></textarea><br>
+			<button>送信</button>
+		</form>
+		【textarea】th:field="*{gender}" th:value="${gender}"
+		<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post"	th:object="${thFieldTestForm}">
+			<textarea th:field="*{gender}" th:value="${gender}"></textarea>
+			<button>送信</button>
+		</form>
+		【textarea】th:value="${gender}"
+		<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post"	th:object="${thFieldTestForm}">
+			<textarea th:value="${gender}"></textarea>
+			<button>送信</button>
+		</form>
+		【textarea】th:text="${gender}"
+		<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post"	th:object="${thFieldTestForm}">
+			<textarea th:text="${gender}"></textarea>
+			<button>送信</button>
+		</form><br>
+		【textarea】th:field="*{gender}" th:text="${gender}"
+		<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post" th:object="${thFieldTestForm}">
+			<textarea th:field="*{gender}" th:text="${gender}"></textarea>
+			<button>送信</button>
+		</form>
+		th:text="${gender}"が優先されるなら1<br>
+		th:field="*{gender}"が優先されるなら2<br>
+	</div>
+		
+		
+	<div class="radio">
+	<h4>radio</h4>
+		リクエストスコープのgender:1<br>
+		formの初期値：2<br>
+		【radio】th:field="*{gender}"　<br>
+		→　エラー（org.attoparser.ParseException: Attribute "value" is required in "input(radio)" tags）<br><br>
+<!-- 		<form th:action="@{/th-field-test/form-sent}" method="post" th:object="${thFieldTestForm}"> -->
+<!-- 			<span th:each="gender:${genderMap}"> -->
+<!-- 			<input type="radio" th:field="*{gender}"><br> -->
+<!-- 			</span> -->
+<!-- 			<button>送信</button> -->
+<!-- 		</form><br> -->
+		【radio】th:field="*{gender}"　th:value="${gender.key}<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post" th:object="${thFieldTestForm}">
+			<span th:each="gender:${genderMap}">
+			<input type="radio" th:field="*{gender}" th:value="${gender.key}"><br>
+			</span>
+			<button>送信</button>
+		</form><br>
+		【radio】th:value="${gender.key}<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post" th:object="${thFieldTestForm}">
+			<span th:each="gender:${genderMap}">
+			<input type="radio" th:value="${gender.key}"><br>
+			</span>
+			<button>送信</button>
+		</form><br>
+		【radio】th:value="${gender.key} th:text="${gender.value}"<br>
+		→　送れるけどデータとしてgenderのデータとして受け取られない<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post" th:object="${thFieldTestForm}">
+			<span th:each="gender:${genderMap}">
+			<input type="radio" th:value="${gender.key}" th:text="${gender.value}"><br>
+			</span>
+			<button>送信</button>
+		</form><br>
+		【radio】th:field="*{gender}" th:text="${gender.value}"<br>
+		→　エラー（org.attoparser.ParseException: Attribute "value" is required in "input(radio)" tags）<br><br>
+<!-- 		<form th:action="@{/th-field-test/form-sent}" method="post" th:object="${thFieldTestForm}"> -->
+<!-- 			<span th:each="gender:${genderMap}"> -->
+<!-- 			<input type="radio" th:field="*{gender}" th:text="${gender.value}"><br> -->
+<!-- 			</span> -->
+<!-- 			<button>送信</button> -->
+<!-- 		</form><br> -->
+		【radio】th:field="*{gender}" th:value="${gender.key} th:text="${gender.value}"<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post" th:object="${thFieldTestForm}">
+			<span th:each="gender:${genderMap}">
+			<input type="radio" th:field="*{gender}" th:value="${gender.key}" th:text="${gender.value}"><br>
+			</span>
+			<button>送信</button>
+		</form><br>
+	</div>
+
+	<div class="checkbox">
+	<h4>checkbox</h4>
+		リクエストスコープのgender:1<br>
+		formの初期値：2<br>
+		【checkbox】th:field="*{gender}"　<br>
+		→　エラー（org.attoparser.ParseException: Attribute "value" is required in "input(checkbox)" tags）<br><br>
+		<!-- <form th:action="@{/th-field-test/form-sent}" method="post" th:object="${thFieldTestForm}">
+			<span th:each="gender:${genderMap}">
+			<input type="checkbox" th:field="*{gender}"><br>
+			</span>
+			<button>送信</button>
+ 		</form><br>  -->
+		【checkbox】th:field="*{gender}"　th:value="${gender.key}<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post" th:object="${thFieldTestForm}">
+			<span th:each="gender:${genderMap}">
+			<input type="checkbox" th:field="*{gender}" th:value="${gender.key}"><br>
+			</span>
+			<button>送信</button>
+		</form><br>
+		【checkbox】th:value="${gender.key}<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post" th:object="${thFieldTestForm}">
+			<span th:each="gender:${genderMap}">
+			<input type="checkbox" th:value="${gender.key}"><br>
+			</span>
+			<button>送信</button>
+		</form><br>
+		【checkbox】th:value="${gender.key} th:text="${gender.value}"<br>
+		→　送れるけどデータとしてgenderのデータとして受け取られない<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post" th:object="${thFieldTestForm}">
+			<span th:each="gender:${genderMap}">
+			<input type="checkbox" th:value="${gender.key}" th:text="${gender.value}"><br>
+			</span>
+			<button>送信</button>
+		</form><br>
+		【checkbox】th:field="*{gender}" th:text="${gender.value}"<br>
+		→　エラー（org.attoparser.ParseException: Attribute "value" is required in "input(checkbox)" tags）<br><br>
+		<!-- <form th:action="@{/th-field-test/form-sent}" method="post" th:object="${thFieldTestForm}">
+			<span th:each="gender:${genderMap}">
+			<input type="checkbox" th:field="*{gender}" th:text="${gender.value}"><br>
+			</span>
+			<button>送信</button>
+		</form><br> -->
+		【checkbox】th:field="*{gender}" th:value="${gender.key} th:text="${gender.value}"<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post" th:object="${thFieldTestForm}">
+			<span th:each="gender:${genderMap}">
+			<input type="checkbox" th:field="*{gender}" th:value="${gender.key}" th:text="${gender.value}"><br>
+			</span>
+			<button>送信</button>
+		</form><br>
+	</div>
+	
+	<div class="select">
+	<h4>select</h4>
+		リクエストスコープのgender:1<br>
+		formの初期値：2<br>
+		【select】 th:field="*{gender}"<br>
+		【option】 なし<br>
+		→　エラー（ org.attoparser.ParseException: Attribute "value" is required in "option" tags）<br><br>
+		<!-- <form th:action="@{/th-field-test/form-sent}" method="post"	th:object="${thFieldTestForm}">
+			<select th:field="*{gender}">
+				<option ></option>
+			</select><br>
+			<button>送信</button>
+		</form><br> -->
+
+		【select】 th:field="*{gender}"<br>
+		【option】 th:value="${gender.key}"<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post"	th:object="${thFieldTestForm}">
+			<select th:field="*{gender}">
+				<option th:each="gender:${genderMap}" th:value="${gender.key}"></option>
+			</select><br>
+			<button>送信</button>
+		</form><br>
+		
+		【select】 なし<br>
+		【option】 th:value="${gender.key}"<br>
+		→　送れるけどデータとしてgenderのデータとして受け取られない<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post"	th:object="${thFieldTestForm}">
+			<select>
+				<option th:each="gender:${genderMap}" th:value="${gender.key}"></option>
+			</select><br>
+			<button>送信</button>
+		</form><br>
+		
+		【select】 なし<br>
+		【option】 th:value="${gender.key}" th:text="${gender.value}"<br>
+		→　送れるけどデータとしてgenderのデータとして受け取られない<br>
+		<form th:action="@{/th-field-test/form-sent}" method="post"	th:object="${thFieldTestForm}">
+			<select>
+				<option th:each="gender:${genderMap}" th:value="${gender.key}" th:text="${gender.value}"></option>
+			</select><br>
+			<button>送信</button>
+		</form><br>
+
+		【select】 th:field="*{gender}"<br>
+		【option】 th:text="${gender.value}"<br>
+		→　エラー（ org.attoparser.ParseException: Attribute "value" is required in "option" tags）<br><br>
+<!-- 		<form th:action="@{/th-field-test/form-sent}" method="post"	th:object="${thFieldTestForm}"> -->
+<!-- 			<select th:field="*{gender}"> -->
+<!-- 				<option th:each="gender:${genderMap}" th:text="${gender.value}"></option> -->
+<!-- 			</select><br> -->
+<!-- 			<button>送信</button> -->
+<!-- 		</form><br> -->
+		
+		【select】 th:field="*{gender}"<br>
+		【option】 th:value="${gender.key}" th:text="${gender.value}"<br>
+		→　一番キレイに出る
+		<form th:action="@{/th-field-test/form-sent}" method="post"	th:object="${thFieldTestForm}">
+			<select th:field="*{gender}">
+				<option th:each="gender:${genderMap}" th:value="${gender.key}" th:text="${gender.value}"></option>
+			</select><br>
+			<button>送信</button>
+		</form><br>
+
+			
+	</div>	
+	<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src=""></script>
+</body>
+</html>
